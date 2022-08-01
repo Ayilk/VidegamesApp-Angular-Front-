@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
 
 import { MaterialModule } from '../material/material.module';
 import { VideogamesRoutingModule } from './videogames-routing.module';
@@ -38,6 +39,7 @@ import { EditarComponent } from './pages/editar/editar.component';
   imports: [
     CommonModule,
     FlexLayoutModule,
+    FormsModule,
     MaterialModule,
     VideogamesRoutingModule
   ],

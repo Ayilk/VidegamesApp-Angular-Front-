@@ -17,8 +17,12 @@ export class VideogamesService {
     return this.http.get<Game[]>(`${this.baseUrl}/videogames`)
   }
 
-  getVideogameById(id: string): Observable<Game[]>{
+  getVideogameById(id: number): Observable<Game[]>{
     return this.http.get<Game[]>(`${this.baseUrl}/videogames/${id}`)
 
+  }
+
+  getSugerencias( termino: string): Observable<Game[]>{
+    return this.http.get<Game[]>(`${this.baseUrl}/videogames?name=${ termino }`)
   }
 }

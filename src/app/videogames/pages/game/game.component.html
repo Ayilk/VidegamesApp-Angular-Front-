@@ -1,1 +1,33 @@
-<p>game works!</p>
+<mat-grid-list cols="1" *ngIf="!game; else divGame">
+   <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+   </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #divGame>
+    <div fxLayout="row"
+         fxLayout.xs="column"
+         fxLayoutGap="30px">
+
+         <div fxFlex="50">            
+            {{game[0].id}} <small>-{{game[0].name}}</small>
+            <mat-divider></mat-divider>
+            <br>
+            <img [src]="game[0].image">
+         </div>
+         
+         <div fxFlex="50">
+            <mat-list>
+               <mat-list-item>{{game[0].description}}</mat-list-item>
+               <mat-list-item>{{game[0].year}}</mat-list-item>
+               <mat-list-item>{{game[0].consoles}}</mat-list-item>
+               <mat-list-item>{{game[0].developers}}</mat-list-item>
+            </mat-list>
+            <br>
+            <button mat-button 
+                    color="warn"
+                    (click)="regresar()">Regresar</button>
+         </div>
+
+    </div>
+</ng-template>

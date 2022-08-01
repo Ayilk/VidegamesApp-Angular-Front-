@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Game } from '../interfaces/videogames.interface';
 
 @Injectable({
@@ -11,5 +12,10 @@ export class VideogamesService {
 
   getVideogames(){
     return this.http.get<Game[]>('https://videogames-app-mm.herokuapp.com/videogames')
+  }
+
+  getVideogameById(id: string): Observable<Game[]>{
+    return this.http.get<Game[]>(`https://videogames-app-mm.herokuapp.com/videogames/${id}`)
+
   }
 }

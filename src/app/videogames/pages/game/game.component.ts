@@ -1,19 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap } from 'rxjs';
+import { Game } from '../../interfaces/videogames.interface';
+import { VideogamesService } from '../../services/videogames.service';
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
-  styles: [
+  styles: [`
+     img {
+      width: 100%;
+      border-radius: 5px;
+     }
+  `
   ]
 })
 export class GameComponent implements OnInit {
 
-  constructor(private activateRoute: ActivatedRoute) { }
+  game! : Game[];
+
+  constructor(private activateRoute: ActivatedRoute,
+               private videogamesService: VideogamesService,
+               private router: Router) { }
 
   ngOnInit(): void {
     this.activateRoute.params  
-      .subscribe(({id}) => console.log(id))
+    .pipe(
+      switchMap( ({ id }) => this.videogamesService.getVideogameById(id))
+    )
+      .subscribe(game => {        
+        this.game = game
+        console.log(this.game)
+      })
+  }
+
+  regresar(){
+    this.router.navigate(['/videogames/listado'])
   }
 
 }

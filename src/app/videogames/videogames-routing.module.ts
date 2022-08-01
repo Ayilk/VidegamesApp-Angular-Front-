@@ -14,7 +14,7 @@ import { ListadoComponent } from './pages/listado/listado.component';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: HomeComponent,
     children: [
       {
@@ -26,6 +26,10 @@ const routes: Routes = [
         component: AgregarComponent
       },
       {
+        path:'editar/:id',
+        component: AgregarComponent
+      },
+      {
         path: 'buscar',
         component: BuscarComponent
       },
@@ -34,7 +38,7 @@ const routes: Routes = [
         component: DeveloperComponent
       },
       {
-        path: 'game',
+        path: ':id',
         component: GameComponent
       },
       {

@@ -15,6 +15,8 @@ import { OrderYearComponent } from './pages/order-year/order-year.component';
 import { OrderConsoleComponent } from './pages/order-console/order-console.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { ListadoComponent } from './pages/listado/listado.component';
+import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
+import { EditarComponent } from './pages/editar/editar.component';
 
 
 
@@ -29,7 +31,9 @@ import { ListadoComponent } from './pages/listado/listado.component';
     OrderYearComponent,
     OrderConsoleComponent,
     LandingPageComponent,
-    ListadoComponent
+    ListadoComponent,
+    TarjetasComponent,
+    EditarComponent
   ],
   imports: [
     CommonModule,

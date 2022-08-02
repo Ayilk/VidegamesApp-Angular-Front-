@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Console } from '../../interfaces/consoles.interface';
 import { Developer, Game } from '../../interfaces/videogames.interface';
 import { VideogamesService } from '../../services/videogames.service';
+import { ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-agregar',
@@ -15,7 +17,7 @@ export class AgregarComponent implements OnInit {
   consoles: Console[] = [];
   developers: Developer[] = [];
   
-  game: Game = {
+  game: Game[] = [{
     id: 0,   
     name: '',
     description:'',
@@ -24,11 +26,19 @@ export class AgregarComponent implements OnInit {
     developers: [],
     image: '',
     active: true
-  };
+  }];
 
-  constructor(private videogameService: VideogamesService) { }
+  constructor(private videogameService: VideogamesService,
+              private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.activateRoute.params
+    .pipe(
+      switchMap( ({id}) => this.videogameService.getVideogameById(id ))
+    )
+    .subscribe( game => this.game = game)
+
     this.videogameService.getVideogames()
     .subscribe(games => {
       this.videogames = games;      
@@ -47,11 +57,15 @@ export class AgregarComponent implements OnInit {
   }
 
   guardar(){
-    console.log(this.game)
-    if(this.game.name.trim().length === 0 ){
+    //console.log(this.game)
+    if(this.game[0].name.trim().length === 0 ){
       return;
     }
+    if(this.game[0].id){
 
+    }else{
+      
+    }
     this.videogameService.postNewVideogame(this.game)
     .subscribe(resp => {
       console.log('Respuesta', resp);

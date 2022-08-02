@@ -35,7 +35,7 @@ export class VideogamesService {
     return this.http.get<Developer[]>(`${this.baseUrl}/developers`)
   }
 
-  postNewVideogame(game:Game): Observable<Game>{
-    return this.http.post<Game>(`${this.baseUrl}/videogames`, game)
+  postNewVideogame(game:Game[]): Observable<Game[]>{
+    return this.http.post<Game[]>(`${this.baseUrl}/videogames`, game)
   }
 }

@@ -59,11 +59,23 @@
         </div>
         <br>
 
-        <button mat-raised-button 
+        <div fxLayout>
+            <button mat-raised-button 
                 color="primary"
                 (click)="guardar()">
             <mat-icon>save</mat-icon>
             Guardar
         </button>
+        <span class="spacer"></span>
+      
+            <button *ngIf="game[0].id"
+                    mat-raised-button
+                    (click)="borrar()"
+                    color="warm">
+                <mat-icon>remove</mat-icon>
+                Borrar
+            </button>
+        </div>
+        
     </div>
 </div>

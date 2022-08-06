@@ -8,7 +8,12 @@ import { switchMap } from 'rxjs';
 @Component({
   selector: 'app-agregar',
   templateUrl: './agregar.component.html',
-  styles: [
+  styles: [`
+     img{
+      width: 100%;
+      border-radius: 5px;
+     }
+  `
   ]
 })
 export class AgregarComponent implements OnInit {
@@ -33,6 +38,10 @@ export class AgregarComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
+
+
+    //console.log(this.router.url.includes('editar'));
+    
 
     this.activateRoute.params
     .pipe(
@@ -79,6 +88,13 @@ export class AgregarComponent implements OnInit {
       }
       )
     }
+  }
+
+  borrar(){
+    this.videogameService.deleteVideogame(this.game[0].id!)
+    .subscribe(resp => {
+       this.router.navigate(['/videogames']);
+    })
   }
 
 }

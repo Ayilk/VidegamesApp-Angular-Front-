@@ -98,13 +98,21 @@ export class AgregarComponent implements OnInit {
 
   borrar(){
 
-    this.dialog.open(ConfirmarComponent, {
-      width: '250px'
-    })
-    // this.videogameService.deleteVideogame(this.game[0].id!)
-    // .subscribe(resp => {
-    //    this.router.navigate(['/videogames']);
-    // })
+    const dialgo = this.dialog.open(ConfirmarComponent, {
+      width: '250px',
+      data: this.game
+    });
+
+    dialgo.afterClosed().subscribe(result => {
+      if(result){
+
+        this.videogameService.deleteVideogame(this.game[0].id!)
+        .subscribe(resp => {
+           this.router.navigate(['/videogames']);
+        })
+      }
+    }
+      )
   }
 
   mostarSnackbar(mensaje: string){

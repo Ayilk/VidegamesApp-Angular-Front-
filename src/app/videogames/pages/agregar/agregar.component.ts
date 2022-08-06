@@ -4,6 +4,7 @@ import { Developer, Game } from '../../interfaces/videogames.interface';
 import { VideogamesService } from '../../services/videogames.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-agregar',
@@ -35,7 +36,8 @@ export class AgregarComponent implements OnInit {
 
   constructor(private videogameService: VideogamesService,
               private activateRoute: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
 
@@ -75,7 +77,7 @@ export class AgregarComponent implements OnInit {
     if(this.game[0].id){
         //Actualizar
         this.videogameService.putVideogame(this.game)
-        .subscribe(game => console.log('Actualizando', game))
+        .subscribe(game => this.mostarSnackbar('Registro Actualizado'))
     }else{
       //Crear
       this.videogameService.postNewVideogame(this.game)
@@ -84,7 +86,8 @@ export class AgregarComponent implements OnInit {
       //   console.log('Respuesta', resp);
       // }
       game => {
-        this.router.navigate(['/videogames/editar', game[0].id  ])
+        this.router.navigate(['/videogames/editar', game[0].id  ]);
+        this.mostarSnackbar('Registro creado')
       }
       )
     }
@@ -94,6 +97,12 @@ export class AgregarComponent implements OnInit {
     this.videogameService.deleteVideogame(this.game[0].id!)
     .subscribe(resp => {
        this.router.navigate(['/videogames']);
+    })
+  }
+
+  mostarSnackbar(mensaje: string){
+    this.snackBar.open(mensaje, 'Ok!', {
+      duration:2500
     })
   }
 

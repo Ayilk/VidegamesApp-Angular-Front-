@@ -38,4 +38,8 @@ export class VideogamesService {
   postNewVideogame(game:Game[]): Observable<Game[]>{
     return this.http.post<Game[]>(`${this.baseUrl}/videogames`, game)
   }
+
+  putVideogame(game:Game[]): Observable<Game[]>{
+    return this.http.put<Game[]>(`${this.baseUrl}/videogames/${game[0].id}`, game)
+  }
 }

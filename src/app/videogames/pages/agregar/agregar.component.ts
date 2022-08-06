@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Console } from '../../interfaces/consoles.interface';
 import { Developer, Game } from '../../interfaces/videogames.interface';
 import { VideogamesService } from '../../services/videogames.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 
 @Component({
@@ -29,7 +29,8 @@ export class AgregarComponent implements OnInit {
   }];
 
   constructor(private videogameService: VideogamesService,
-              private activateRoute: ActivatedRoute) { }
+              private activateRoute: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
 
@@ -61,15 +62,23 @@ export class AgregarComponent implements OnInit {
     if(this.game[0].name.trim().length === 0 ){
       return;
     }
+    // console.log(this.game[0].id)
     if(this.game[0].id){
-
+        //Actualizar
+        this.videogameService.putVideogame(this.game)
+        .subscribe(game => console.log('Actualizando', game))
     }else{
-      
+      //Crear
+      this.videogameService.postNewVideogame(this.game)
+      .subscribe(
+      //   resp => {
+      //   console.log('Respuesta', resp);
+      // }
+      game => {
+        this.router.navigate(['/videogames/editar', game[0].id  ])
+      }
+      )
     }
-    this.videogameService.postNewVideogame(this.game)
-    .subscribe(resp => {
-      console.log('Respuesta', resp);
-    })
   }
 
 }

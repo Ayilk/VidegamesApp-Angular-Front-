@@ -18,6 +18,7 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { ListadoComponent } from './pages/listado/listado.component';
 import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
 import { EditarComponent } from './pages/editar/editar.component';
+import { ConfirmarComponent } from './components/confirmar/confirmar.component';
 
 
 
@@ -34,7 +35,8 @@ import { EditarComponent } from './pages/editar/editar.component';
     LandingPageComponent,
     ListadoComponent,
     TarjetasComponent,
-    EditarComponent
+    EditarComponent,
+    ConfirmarComponent
   ],
   imports: [
     CommonModule,

@@ -5,6 +5,8 @@ import { VideogamesService } from '../../services/videogames.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmarComponent } from '../../components/confirmar/confirmar.component';
 
 @Component({
   selector: 'app-agregar',
@@ -37,7 +39,8 @@ export class AgregarComponent implements OnInit {
   constructor(private videogameService: VideogamesService,
               private activateRoute: ActivatedRoute,
               private router: Router,
-              private snackBar: MatSnackBar) { }
+              private snackBar: MatSnackBar,
+              private dialog: MatDialog) { }
 
   ngOnInit(): void {
 
@@ -94,10 +97,14 @@ export class AgregarComponent implements OnInit {
   }
 
   borrar(){
-    this.videogameService.deleteVideogame(this.game[0].id!)
-    .subscribe(resp => {
-       this.router.navigate(['/videogames']);
+
+    this.dialog.open(ConfirmarComponent, {
+      width: '250px'
     })
+    // this.videogameService.deleteVideogame(this.game[0].id!)
+    // .subscribe(resp => {
+    //    this.router.navigate(['/videogames']);
+    // })
   }
 
   mostarSnackbar(mensaje: string){

@@ -17,14 +17,14 @@ export class LoginComponent  {
     //Ir al back
     //Usuario que hay que almacenar
 
-    this.authService.login()
-    .subscribe(resp => {
-      console.log(resp)
-      if(resp.id){
-        this.router.navigate(['./videogames']);
-      }
-    })
-    
+    // this.authService.login()
+    // .subscribe(resp => {
+    //   console.log(resp)
+    //   if(resp.id){
+    //     this.router.navigate(['./videogames']);
+    //   }
+    // })
+
     this.router.navigate(['./videogames'])
   }
 

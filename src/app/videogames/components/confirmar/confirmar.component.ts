@@ -11,10 +11,10 @@ import { Game } from '../../interfaces/videogames.interface';
 export class ConfirmarComponent implements OnInit {
 
   constructor(private dialogRef: MatDialogRef<ConfirmarComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: {name: Game}) { }
+              @Inject(MAT_DIALOG_DATA) public data: {name: Game[]}) { }
 
   ngOnInit(): void {
-    //console.log(this.data)
+    console.log(this.data)
 
   }
 

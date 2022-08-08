@@ -7,6 +7,9 @@
 >
 
     <div fxFlex = "50" fxLayout="column">
+        <div fxLayout="row" 
+             fxLayout.xs="column" 
+             fxLayoutGap="20px">
 
         <mat-form-field fxFlex="100">
             <mat-label>Nombre</mat-label>
@@ -49,13 +52,13 @@
         <mat-form-field fxFlex="100">
             <mat-label>Imagen</mat-label>
             <input matInput
-                   [(ngModel)]="game[0].image"
                    type="url"
+                   [(ngModel)]="game[0].image"
                    required>
         </mat-form-field>
 
-        <div fxFlex="100" [(ngModel)]="game[0].active">            
-            <mat-radio-group>
+        <div fxFlex="100" >            
+            <mat-radio-group [(ngModel)]="game[0].active">
                 <mat-radio-button value="true">Activo</mat-radio-button>
                 <mat-radio-button value="false">Inactivo</mat-radio-button>
             </mat-radio-group>
@@ -67,7 +70,7 @@
                 color="primary"
                 (click)="guardar()">
             <mat-icon>save</mat-icon>
-            Guardar
+            {{(game[0].id ?"Actualizar" : "Crear")}}
         </button>
         <span class="spacer"></span>
       
@@ -76,9 +79,14 @@
                     (click)="borrar()"
                     color="warm">
                 <mat-icon>remove</mat-icon>
-                {{(game[0].id ?"Actualizar" : "Crear")}}
+                Borrar
             </button>
         </div>
+        </div>
         
+    </div>
+
+    <div fxFlex = "50" fxLayout="column">
+       <img [src]="game[0].image">
     </div>
 </div>

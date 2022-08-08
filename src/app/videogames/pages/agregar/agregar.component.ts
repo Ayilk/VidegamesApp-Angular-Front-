@@ -80,7 +80,9 @@ export class AgregarComponent implements OnInit {
     if(this.game[0].id){
         //Actualizar
         this.videogameService.putVideogame(this.game)
-        .subscribe(game => this.mostarSnackbar('Registro Actualizado'))
+        .subscribe(game => {
+          console.log(game)
+          this.mostarSnackbar('Registro Actualizado')})
     }else{
       //Crear
       this.videogameService.postNewVideogame(this.game)
@@ -89,7 +91,7 @@ export class AgregarComponent implements OnInit {
       //   console.log('Respuesta', resp);
       // }
       game => {
-        this.router.navigate(['/videogames/editar', game[0].id  ]);
+        this.router.navigate(['/videogames', game[0].id  ]);
         this.mostarSnackbar('Registro creado')
       }
       )
@@ -106,7 +108,7 @@ export class AgregarComponent implements OnInit {
     dialgo.afterClosed().subscribe(result => {
       if(result){
 
-        this.videogameService.deleteVideogame(this.game[0].id!)
+        this.videogameService.deleteVideogame(this.game)
         .subscribe(resp => {
            this.router.navigate(['/videogames']);
         })

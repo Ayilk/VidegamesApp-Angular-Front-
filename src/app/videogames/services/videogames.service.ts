@@ -43,7 +43,7 @@ export class VideogamesService {
     return this.http.put<Game[]>(`${this.baseUrl}/videogames/${game[0].id}`, game)
   }
 
-  deleteVideogame (id: number): Observable<any>{
-    return this.http.delete<any>(`${this.baseUrl}/videogames/${id}`)
+  deleteVideogame (game:Game[]): Observable<any>{
+    return this.http.delete<any>(`${this.baseUrl}/videogames/${game[0].id}`)
   }
 }

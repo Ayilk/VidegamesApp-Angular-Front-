@@ -24,6 +24,7 @@ export class LoginComponent  {
         this.router.navigate(['./videogames']);
       }
     })
+    
     this.router.navigate(['./videogames'])
   }
 

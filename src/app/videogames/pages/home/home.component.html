@@ -19,8 +19,30 @@
                 <mat-icon mat-list-icon>label</mat-icon>
                 <span>
                     Listado de videojuegos
-                </span>
+                </span>                
             </a>
+
+            <mat-list>
+                <mat-list-item>
+                    
+                        <a routerLink="./order-year"
+                           mat-list-item
+                           (click)="sidenav.toggle()">
+                           <mat-icon mat-list-icon>label</mat-icon>
+                           <span>Ordenar por año</span>                       
+                        </a>
+                    
+                </mat-list-item>
+                <mat-list-item>
+                    <a routerLink="./order-console"
+                           mat-list-item
+                           (click)="sidenav.toggle()">
+                           <mat-icon mat-list-icon>label</mat-icon>
+                           <span>Ordenar por Consola</span>
+                        </a>
+                </mat-list-item>
+            </mat-list>
+
             <a routerLink="./agregar"
                 mat-list-item
                 (click)="sidenav.toggle()">
@@ -57,7 +79,7 @@
     </mat-toolbar>
 
     <div class="container">
-        <h3>Aquí veras los videogames</h3>
+        
         <router-outlet></router-outlet>
     </div>
     

@@ -2,7 +2,7 @@ export interface Game {
     id:           number ;
     name:         string;
     year:         number;
-    consoles:     Array<Developer | string>;
+    consoles?:     Array<Developer | string>;
     image:        string;
     active:       boolean;
     description?: string;

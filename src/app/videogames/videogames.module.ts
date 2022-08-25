@@ -14,7 +14,6 @@ import { YearComponent } from './pages/year/year.component';
 import { DeveloperComponent } from './pages/developer/developer.component';
 import { OrderYearComponent } from './pages/order-year/order-year.component';
 import { OrderConsoleComponent } from './pages/order-console/order-console.component';
-import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { ListadoComponent } from './pages/listado/listado.component';
 import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
 import { EditarComponent } from './pages/editar/editar.component';
@@ -31,8 +30,7 @@ import { ConfirmarComponent } from './components/confirmar/confirmar.component';
     YearComponent,
     DeveloperComponent,
     OrderYearComponent,
-    OrderConsoleComponent,
-    LandingPageComponent,
+    OrderConsoleComponent,   
     ListadoComponent,
     TarjetasComponent,
     EditarComponent,

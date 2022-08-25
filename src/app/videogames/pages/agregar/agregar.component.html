@@ -7,11 +7,12 @@
 >
 
     <div fxFlex = "50" fxLayout="column">
-        <div fxLayout="row" 
+
+        <div fxLayout="column" 
              fxLayout.xs="column" 
              fxLayoutGap="20px">
 
-        <mat-form-field fxFlex="100">
+        <mat-form-field fxFlex="100" fxLayout.xs="column">
             <mat-label>Nombre</mat-label>
             <input matInput
                    type="text"
@@ -19,7 +20,7 @@
                    required>
         </mat-form-field>
 
-        <mat-form-field fxFlex="100">
+        <mat-form-field >
             <mat-label>Descripción</mat-label>
             <input matInput
                    type="text"
@@ -27,7 +28,7 @@
                    required>
         </mat-form-field>
 
-        <mat-form-field fxFlex="100">
+        <mat-form-field >
             <mat-label>Año</mat-label>
             <input matInput
                    type="number"
@@ -35,21 +36,21 @@
                    required>
         </mat-form-field>
 
-        <mat-form-field fxFlex="100">
+        <mat-form-field >
             <mat-label>Desarrollador</mat-label>
             <mat-select [(ngModel)]="game[0].developers" required>
                 <mat-option *ngFor="let dev of developers">{{dev.name}}</mat-option>
             </mat-select>
         </mat-form-field>
 
-        <mat-form-field fxFlex="100">
+        <mat-form-field >
             <mat-label>Consolas</mat-label>
             <mat-select [(ngModel)]="game[0].consoles" required>
                 <mat-option *ngFor="let console of consoles">{{console.name}}</mat-option>
             </mat-select>
         </mat-form-field>
 
-        <mat-form-field fxFlex="100">
+        <mat-form-field >
             <mat-label>Imagen</mat-label>
             <input matInput
                    type="url"
@@ -57,7 +58,7 @@
                    required>
         </mat-form-field>
 
-        <div fxFlex="100" >            
+        <div  >            
             <mat-radio-group [(ngModel)]="game[0].active">
                 <mat-radio-button value="true">Activo</mat-radio-button>
                 <mat-radio-button value="false">Inactivo</mat-radio-button>
@@ -67,8 +68,8 @@
 
         <div fxLayout>
             <button mat-raised-button 
-                color="primary"
-                (click)="guardar()">
+                    color="primary"
+                    (click)="guardar()">
             <mat-icon>save</mat-icon>
             {{(game[0].id ?"Actualizar" : "Crear")}}
         </button>
@@ -89,4 +90,5 @@
     <div fxFlex = "50" fxLayout="column">
        <img [src]="game[0].image">
     </div>
+
 </div>

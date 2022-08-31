@@ -37,7 +37,7 @@ export class BuscarComponent implements OnInit {
     const game: Game = event.option.value;
     this.termino = game.name
 
-    this.videogamesService.getVideogameById(game.id)
+    this.videogamesService.getVideogameById(game._id)
     .subscribe(game => this.gameSeleccionado = game[0])
   }
 }

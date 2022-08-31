@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Developer, Game } from '../interfaces/videogames.interface';
+import { Game } from '../interfaces/videogames.interface';
 import { environment } from '../../../environments/environment.prod';
 import { Console } from '../interfaces/consoles.interface';
+import { Developer } from '../interfaces/developers.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,8 @@ export class VideogamesService {
     return this.http.get<Game[]>(`${this.baseUrl}/videogames`)
   }
 
-  getVideogameById(id: number): Observable<Game[]>{
-    return this.http.get<Game[]>(`${this.baseUrl}/videogames/${id}`)
+  getVideogameById(_id: string  ): Observable<Game[]>{
+    return this.http.get<Game[]>(`${this.baseUrl}/videogames/${_id}`)
 
   }
 
@@ -40,10 +41,10 @@ export class VideogamesService {
   }
 
   putVideogame(game:Game[]): Observable<Game[]>{
-    return this.http.put<Game[]>(`${this.baseUrl}/videogames/${game[0].id}`, game)
+    return this.http.put<Game[]>(`${this.baseUrl}/videogames/${game[0]._id}`, game)
   }
 
   deleteVideogame (game:Game[]): Observable<any>{
-    return this.http.delete<any>(`${this.baseUrl}/videogames/${game[0].id}`)
+    return this.http.delete<any>(`${this.baseUrl}/videogames/${game[0]._id}`)
   }
 }

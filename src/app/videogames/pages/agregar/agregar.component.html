@@ -1,5 +1,5 @@
 <h1>
-    {{(game[0].id ?"Editar" : "Nuevo")}} Videojuego
+    {{(game[0]._id ?"Editar" : "Nuevo")}} Videojuego
     "{{game[0].name}}"
 </h1>
 
@@ -71,11 +71,11 @@
                     color="primary"
                     (click)="guardar()">
             <mat-icon>save</mat-icon>
-            {{(game[0].id ?"Actualizar" : "Crear")}}
+            {{(game[0]._id ?"Actualizar" : "Crear")}}
         </button>
         <span class="spacer"></span>
       
-            <button *ngIf="game[0].id"
+            <button *ngIf="game[0]._id"
                     mat-raised-button
                     (click)="borrar()"
                     color="warm">

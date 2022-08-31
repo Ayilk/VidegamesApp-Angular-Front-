@@ -1,4 +1,5 @@
 export interface Console {
-    id:   number;
+    _id:  string;
     name: string;
+    __v:  number;
 }

@@ -26,7 +26,7 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
     this.activateRoute.params  
     .pipe(
-      switchMap( ({ id }) => this.videogamesService.getVideogameById(id))
+      switchMap( ({ _id }) => this.videogamesService.getVideogameById(_id))
     )
       .subscribe(game => {        
         this.game = game

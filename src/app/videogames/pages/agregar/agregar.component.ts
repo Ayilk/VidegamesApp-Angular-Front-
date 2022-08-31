@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Console } from '../../interfaces/consoles.interface';
-import { Developer, Game } from '../../interfaces/videogames.interface';
+import { Game } from '../../interfaces/videogames.interface';
 import { VideogamesService } from '../../services/videogames.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmarComponent } from '../../components/confirmar/confirmar.component';
+import { Developer } from '../../interfaces/developers.interface';
 
 @Component({
   selector: 'app-agregar',
@@ -26,14 +27,15 @@ export class AgregarComponent implements OnInit {
   developers: Developer[] = [];
   
   game: Game[] = [{
-    id: 0,   
+    _id: '',   
     name: '',
     description:'',
     year: 0,
     consoles: [],
     developers: [],
     image: '',
-    active: true
+    active: true,
+    __v: 0
   }];
 
   constructor(private videogameService: VideogamesService,
@@ -77,7 +79,7 @@ export class AgregarComponent implements OnInit {
       return;
     }
     // console.log(this.game[0].id)
-    if(this.game[0].id){
+    if(this.game[0]._id){
         //Actualizar
         this.videogameService.putVideogame(this.game)
         .subscribe(game => {
@@ -91,7 +93,7 @@ export class AgregarComponent implements OnInit {
       //   console.log('Respuesta', resp);
       // }
       game => {
-        this.router.navigate(['/videogames', game[0].id  ]);
+        this.router.navigate(['/videogames', game[0]._id  ]);
         this.mostarSnackbar('Registro creado')
       }
       )

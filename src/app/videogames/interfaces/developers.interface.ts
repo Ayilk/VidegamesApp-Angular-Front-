@@ -1,10 +1,5 @@
 export interface Developer {
-    id:         number;
-    name:       string;
-    videogames: Videogame[];
-}
-
-export interface Videogame {
+    _id:  string;
     name: string;
-    id:   string;
+    __v:  number;
 }

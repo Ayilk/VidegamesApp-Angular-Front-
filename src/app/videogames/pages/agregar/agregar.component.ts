@@ -26,7 +26,7 @@ export class AgregarComponent implements OnInit {
   consoles: Console[] = [];
   developers: Developer[] = [];
   
-  game: Game[] = [{
+  game: Game = {
     _id: '',   
     name: '',
     description:'',
@@ -36,7 +36,7 @@ export class AgregarComponent implements OnInit {
     image: '',
     active: true,
     __v: 0
-  }];
+  };
 
   constructor(private videogameService: VideogamesService,
               private activateRoute: ActivatedRoute,
@@ -46,9 +46,7 @@ export class AgregarComponent implements OnInit {
 
   ngOnInit(): void {
 
-
-    //console.log(this.router.url.includes('editar'));
-    
+    //console.log(this.router.url.includes('editar'));    
 
     this.activateRoute.params
     .pipe(
@@ -75,11 +73,11 @@ export class AgregarComponent implements OnInit {
 
   guardar(){
     //console.log(this.game)
-    if(this.game[0].name.trim().length === 0 ){
+    if(this.game.name.trim().length === 0 ){
       return;
     }
     // console.log(this.game[0].id)
-    if(this.game[0]._id){
+    if(this.game._id){
         //Actualizar
         this.videogameService.putVideogame(this.game)
         .subscribe(game => {
@@ -93,7 +91,8 @@ export class AgregarComponent implements OnInit {
       //   console.log('Respuesta', resp);
       // }
       game => {
-        this.router.navigate(['/videogames', game[0]._id  ]);
+        console.log(game)
+        this.router.navigate(['/videogames', game._id  ]);
         this.mostarSnackbar('Registro creado')
       }
       )

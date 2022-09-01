@@ -17,7 +17,7 @@ import { VideogamesService } from '../../services/videogames.service';
 })
 export class GameComponent implements OnInit {
 
-  game! : Game[];
+  game! : Game;
 
   constructor(private activateRoute: ActivatedRoute,
                private videogamesService: VideogamesService,
@@ -26,11 +26,17 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
     this.activateRoute.params  
     .pipe(
-      switchMap( ({ _id }) => this.videogamesService.getVideogameById(_id))
+      switchMap((r) => {
+        
+        let game = this.videogamesService.getVideogameById(r['id']);
+        //console.log(game)
+        return game
+      })
     )
-      .subscribe(game => {        
+      .subscribe(game => {  
+       // console.log(game)      
         this.game = game
-        console.log(this.game)
+        //console.log(this.game)
       })
   }
 

@@ -19,8 +19,8 @@ export class VideogamesService {
     return this.http.get<Game[]>(`${this.baseUrl}/videogames`)
   }
 
-  getVideogameById(_id: string  ): Observable<Game[]>{
-    return this.http.get<Game[]>(`${this.baseUrl}/videogames/${_id}`)
+  getVideogameById(_id: string  ): Observable<Game>{
+    return this.http.get<Game>(`${this.baseUrl}/videogames/${_id}`)
 
   }
 
@@ -36,15 +36,15 @@ export class VideogamesService {
     return this.http.get<Developer[]>(`${this.baseUrl}/developers`)
   }
 
-  postNewVideogame(game:Game[]): Observable<Game[]>{
-    return this.http.post<Game[]>(`${this.baseUrl}/videogames`, game)
+  postNewVideogame(game:Game): Observable<Game>{
+    return this.http.post<Game>(`${this.baseUrl}/videogames`, game)
   }
 
-  putVideogame(game:Game[]): Observable<Game[]>{
-    return this.http.put<Game[]>(`${this.baseUrl}/videogames/${game[0]._id}`, game)
+  putVideogame(game:Game): Observable<Game>{
+    return this.http.put<Game>(`${this.baseUrl}/videogames/${game._id}`, game)
   }
 
-  deleteVideogame (game:Game[]): Observable<any>{
-    return this.http.delete<any>(`${this.baseUrl}/videogames/${game[0]._id}`)
+  deleteVideogame (game:Game): Observable<any>{
+    return this.http.delete<any>(`${this.baseUrl}/videogames/${game._id}`)
   }
 }

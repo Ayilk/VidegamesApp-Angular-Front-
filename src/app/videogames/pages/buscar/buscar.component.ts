@@ -38,6 +38,6 @@ export class BuscarComponent implements OnInit {
     this.termino = game.name
 
     this.videogamesService.getVideogameById(game._id)
-    .subscribe(game => this.gameSeleccionado = game[0])
+    .subscribe(game => this.gameSeleccionado = game)
   }
 }

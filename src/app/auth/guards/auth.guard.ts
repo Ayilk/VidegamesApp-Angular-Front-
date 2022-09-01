@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate, CanLoad {
       if(this.authService.auth.id){
         return true
       }
-      console.log("Bloqueado por el AuthGuard-CanActivate")  
+      //console.log("Bloqueado por el AuthGuard-CanActivate")  
       //return false;
       return true
   }
@@ -24,14 +24,14 @@ export class AuthGuard implements CanActivate, CanLoad {
     route: Route,
     segments: UrlSegment[]): Observable<boolean > | Promise<boolean> | boolean{
     //Si el canLoad recibe false, no entra a la ruta
-    console.log('canLoad', true);
-    console.log(route);
-    console.log(segments)
+    // console.log('canLoad', true);
+    // console.log(route);
+    // console.log(segments)
 
     if(this.authService.auth.id){
       return true
     }
-    console.log("Bloqueado por el AuthGuard-CanLoad")  
+    //console.log("Bloqueado por el AuthGuard-CanLoad")  
     //return false;
     return true
   }

@@ -38,15 +38,15 @@
 
         <mat-form-field >
             <mat-label>Desarrollador</mat-label>
-            <mat-select [(ngModel)]="game.developers" required>
-                <mat-option *ngFor="let dev of developers">{{dev.name}}</mat-option>
+            <mat-select [(ngModel)]="game.developers" name="developers" multiple required>
+                <mat-option *ngFor="let dev of developers" [value]="dev.name">{{dev.name}}</mat-option>
             </mat-select>
         </mat-form-field>
 
         <mat-form-field >
             <mat-label>Consolas</mat-label>
-            <mat-select [(ngModel)]="game.consoles" required>
-                <mat-option *ngFor="let console of consoles">{{console.name}}</mat-option>
+            <mat-select [(ngModel)]="game.consoles" name="consoles" multiple required>
+                <mat-option *ngFor="let console of consoles" [value]="console.name">{{console.name}}</mat-option>
             </mat-select>
         </mat-form-field>
 

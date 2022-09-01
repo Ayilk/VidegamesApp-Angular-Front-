@@ -1,5 +1,5 @@
 export interface Game {
-    _id:         string;
+    _id?:         string;
     name:        string;
     description: string;
     developers:  string[];
@@ -7,5 +7,5 @@ export interface Game {
     consoles:    string[];
     image:       string;
     active:      boolean;
-    __v:         number;
+    __v?:         number;
 }

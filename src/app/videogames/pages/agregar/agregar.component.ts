@@ -27,7 +27,7 @@ export class AgregarComponent implements OnInit {
   developers: Developer[] = [];
   
   game: Game = {
-    _id: '',   
+    //_id: '',   
     name: '',
     description:'',
     year: 0,
@@ -50,7 +50,7 @@ export class AgregarComponent implements OnInit {
 
     this.activateRoute.params
     .pipe(
-      switchMap( ({id}) => this.videogameService.getVideogameById(id ))
+      switchMap( r => this.videogameService.getVideogameById(r["id"] ))
     )
     .subscribe( game => this.game = game)
 
@@ -92,13 +92,14 @@ export class AgregarComponent implements OnInit {
       // }
       game => {
         console.log(game)
-        this.router.navigate(['/videogames', game._id  ]);
+        this.router.navigate(['/videogames/', game._id  ]);
         this.mostarSnackbar('Registro creado')
       }
       )
     }
   }
 
+ 
   borrar(){
 
     const dialgo = this.dialog.open(ConfirmarComponent, {

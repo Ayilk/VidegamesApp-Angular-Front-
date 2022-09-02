@@ -15,6 +15,8 @@ export class BuscarComponent implements OnInit {
 
   gameSeleccionado!: Game | undefined;
 
+  debounceTimer?: NodeJS.Timeout;
+
   constructor(private videogamesService: VideogamesService) { }
 
   ngOnInit(): void {
@@ -23,7 +25,8 @@ export class BuscarComponent implements OnInit {
   buscar(){
 
     this.videogamesService.getSugerencias( this.termino.trim() )
-    .subscribe( games => this.videogames = games)
+  .subscribe( games => this.videogames = games)
+    
   }
 
   opcionSelecionada(event: MatAutocompleteSelectedEvent){

@@ -82,6 +82,7 @@ export class AgregarComponent implements OnInit {
         this.videogameService.putVideogame(this.game)
         .subscribe(game => {
           console.log(game)
+          this.router.navigate(['/videogames/', game._id  ]);
           this.mostarSnackbar('Registro Actualizado')})
     }else{
       //Crear

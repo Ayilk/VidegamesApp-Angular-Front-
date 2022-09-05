@@ -12,7 +12,9 @@
                 <mat-icon>menu</mat-icon>
             </button>
         </mat-toolbar>
+        
         <mat-nav-list>
+
             <a routerLink="./listado"
                 mat-list-item
                 (click)="sidenav.toggle()">
@@ -22,26 +24,27 @@
                 </span>                
             </a>
 
-            <mat-list>
-                <mat-list-item>
+            <!-- <mat-list>
+                <mat-list-item> -->
                     
-                        <a routerLink="./order-year"
+                        <!-- <a routerLink="./order-year"
                            mat-list-item
                            (click)="sidenav.toggle()">
                            <mat-icon mat-list-icon>label</mat-icon>
                            <span>Ordenar por año</span>                       
-                        </a>
+                        </a> -->
                     
-                </mat-list-item>
-                <mat-list-item>
-                    <a routerLink="./order-console"
+                <!-- </mat-list-item> -->
+
+                <!-- <mat-list-item> -->
+                    <!-- <a routerLink="./order-console"
                            mat-list-item
                            (click)="sidenav.toggle()">
                            <mat-icon mat-list-icon>label</mat-icon>
                            <span>Ordenar por Consola</span>
-                        </a>
-                </mat-list-item>
-            </mat-list>
+                        </a> -->
+                <!-- </mat-list-item> -->
+            <!-- </mat-list> -->
 
             <a routerLink="./agregar"
                 mat-list-item
@@ -51,6 +54,7 @@
                     Añadir videojuego
                 </span>
             </a>
+
             <a routerLink="./buscar"
                 mat-list-item
                 (click)="sidenav.toggle()">
@@ -59,6 +63,7 @@
                     Buscar videojuego
                 </span>
             </a>
+
         </mat-nav-list>
     </mat-sidenav>
 

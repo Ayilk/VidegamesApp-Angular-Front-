@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { Game } from '../../interfaces/videogames.interface';
 import { VideogamesService } from '../../services/videogames.service';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-game',
@@ -26,19 +27,22 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
     this.activateRoute.params  
     .pipe(
-      switchMap((r) => {
+      switchMap(({id}) => {
+        console.log(id)
         
-        let game = this.videogamesService.getVideogameById(r['id']);
-        //console.log(game)
+        let game = this.videogamesService.getVideogameById(id);
         return game
       })
     )
+    
       .subscribe(game => {  
-       // console.log(game)      
+        console.log(game)      
         this.game = game
         //console.log(this.game)
       })
   }
+
+ 
 
   regresar(){
     this.router.navigate(['/videogames/listado'])

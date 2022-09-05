@@ -48,11 +48,7 @@ export class AgregarComponent implements OnInit {
 
     //console.log(this.router.url.includes('editar'));    
 
-    this.activateRoute.params
-    .pipe(
-      switchMap( r => this.videogameService.getVideogameById(r["id"] ))
-    )
-    .subscribe( game => this.game = game)
+    
 
     this.videogameService.getVideogames()
     .subscribe(games => {
@@ -77,14 +73,7 @@ export class AgregarComponent implements OnInit {
       return;
     }
     // console.log(this.game[0].id)
-    if(this.game._id){
-        //Actualizar
-        this.videogameService.putVideogame(this.game)
-        .subscribe(game => {
-          console.log(game)
-          this.router.navigate(['/videogames/', game._id  ]);
-          this.mostarSnackbar('Registro Actualizado')})
-    }else{
+    else{
       //Crear
       this.videogameService.postNewVideogame(this.game)
       .subscribe(

@@ -1,1 +1,94 @@
-<p>editar works!</p>
+<h1>
+    Editar Videojuego
+    "{{game.name}}"
+</h1>
+
+<div fxLayout = "row" fxLayoutGap = "40px" fxLayout.xs = "column"
+>
+
+    <div fxFlex = "50" fxLayout="column">
+
+        <div fxLayout="column" 
+             fxLayout.xs="column" 
+             fxLayoutGap="20px">
+
+        <mat-form-field fxFlex="100" fxLayout.xs="column">
+            <mat-label>Nombre</mat-label>
+            <input matInput
+                   type="text"
+                   [(ngModel)]="game.name"
+                   required>
+        </mat-form-field>
+
+        <mat-form-field >
+            <mat-label>Descripción</mat-label>
+            <input matInput
+                   type="text"
+                   [(ngModel)]="game.description"
+                   required>
+        </mat-form-field>
+
+        <mat-form-field >
+            <mat-label>Año</mat-label>
+            <input matInput
+                   type="number"
+                   [(ngModel)]="game.year"
+                   required>
+        </mat-form-field>
+
+        <mat-form-field >
+            <mat-label>Desarrollador</mat-label>
+            <mat-select [(ngModel)]="game.developers" name="developers" multiple required>
+                <mat-option *ngFor="let dev of developers" [value]="dev.name">{{dev.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field >
+            <mat-label>Consolas</mat-label>
+            <mat-select [(ngModel)]="game.consoles" name="consoles" multiple required>
+                <mat-option *ngFor="let console of consoles" [value]="console.name">{{console.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field >
+            <mat-label>Imagen</mat-label>
+            <input matInput
+                   type="url"
+                   [(ngModel)]="game.image"
+                   required>
+        </mat-form-field>
+
+        <div  >            
+            <mat-radio-group [(ngModel)]="game.active">
+                <mat-radio-button value="true">Activo</mat-radio-button>
+                <mat-radio-button value="false">Inactivo</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <br>
+
+        <div fxLayout>
+            <button mat-raised-button 
+                    color="primary"
+                    (click)="guardar()">
+            <mat-icon>save</mat-icon>
+            {{(game._id ?"Actualizar" : "Crear")}}
+        </button>
+        <span class="spacer"></span>
+      
+            <button *ngIf="game._id"
+                    mat-raised-button
+                    (click)="borrar()"
+                    color="warm">
+                <mat-icon>remove</mat-icon>
+                Borrar
+            </button>
+        </div>
+        </div>
+        
+    </div>
+
+    <div fxFlex = "50" fxLayout="column">
+       <img [src]="game.image">
+    </div>
+
+</div>

@@ -10,14 +10,17 @@ import { HomeComponent } from './pages/home/home.component';
 import { AgregarComponent } from './pages/agregar/agregar.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
 import { GameComponent } from './pages/game/game.component';
-import { YearComponent } from './pages/year/year.component';
+
 import { DeveloperComponent } from './pages/developer/developer.component';
-import { OrderYearComponent } from './pages/order-year/order-year.component';
-import { OrderConsoleComponent } from './pages/order-console/order-console.component';
+
 import { ListadoComponent } from './pages/listado/listado.component';
 import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
 import { EditarComponent } from './pages/editar/editar.component';
 import { ConfirmarComponent } from './components/confirmar/confirmar.component';
+import { ListadoTotalComponent } from './components/listado-total/listado-total.component';
+import { OrderYearComponent } from './components/order-year/order-year.component';
+import { OrderConsoleComponent } from './components/order-console/order-console.component';
+import { OrderDeveloperComponent } from './components/order-developer/order-developer.component';
 
 
 
@@ -27,14 +30,17 @@ import { ConfirmarComponent } from './components/confirmar/confirmar.component';
     AgregarComponent,
     BuscarComponent,
     GameComponent,
-    YearComponent,
+    
     DeveloperComponent,
-    OrderYearComponent,
-    OrderConsoleComponent,   
+    
     ListadoComponent,
     TarjetasComponent,
     EditarComponent,
-    ConfirmarComponent
+    ConfirmarComponent,
+    ListadoTotalComponent,
+    OrderYearComponent,
+    OrderConsoleComponent,
+    OrderDeveloperComponent
   ],
   imports: [
     CommonModule,

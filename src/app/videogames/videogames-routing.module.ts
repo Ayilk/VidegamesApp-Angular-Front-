@@ -6,10 +6,9 @@ import { AgregarComponent } from './pages/agregar/agregar.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
 import { DeveloperComponent } from './pages/developer/developer.component';
 import { GameComponent } from './pages/game/game.component';
-import { OrderConsoleComponent } from './pages/order-console/order-console.component';
-import { OrderYearComponent } from './pages/order-year/order-year.component';
-import { YearComponent } from './pages/year/year.component';
+
 import { ListadoComponent } from './pages/listado/listado.component';
+import { EditarComponent } from './pages/editar/editar.component';
 
 const routes: Routes = [
   {
@@ -26,7 +25,7 @@ const routes: Routes = [
       },
       {
         path:'editar/:id',
-        component: AgregarComponent
+        component: EditarComponent
       },
       {
         path: 'buscar',
@@ -40,18 +39,7 @@ const routes: Routes = [
         path: ':id',
         component: GameComponent
       },
-      {
-        path: 'order-console',
-        component: OrderConsoleComponent
-      },
-      {
-        path: 'order-year',
-        component: OrderYearComponent
-      },
-      {
-        path: 'year',
-        component: YearComponent
-      },
+      
       {
         path: '**',
         redirectTo: ''

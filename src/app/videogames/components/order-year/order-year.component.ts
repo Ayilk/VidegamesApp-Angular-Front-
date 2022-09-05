@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-year',
-  templateUrl: './year.component.html',
+  selector: 'app-order-year',
+  templateUrl: './order-year.component.html',
   styles: [
   ]
 })
-export class YearComponent implements OnInit {
+export class OrderYearComponent implements OnInit {
 
   constructor() { }
 

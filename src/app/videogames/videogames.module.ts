@@ -46,7 +46,7 @@ import { OrderDeveloperComponent } from './components/order-developer/order-deve
     CommonModule,
     FlexLayoutModule,
     FormsModule,
-    MaterialModule,
+    MaterialModule,   
     VideogamesRoutingModule
   ],
   exports: [

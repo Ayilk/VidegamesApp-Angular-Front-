@@ -2,19 +2,39 @@
 <mat-divider></mat-divider>
 <br>
 
+<button mat-button >Todos los videojuegos</button>
 
-<div fxLayout="row wrap"
-     fxLayout.xs="column"
-     fxLayoutAlign="center"
-     fxLayoutGap="30px">
+<button mat-button [matMenuTriggerFor]="order">Ordenar por Orden Alfabético</button>
+<mat-menu #order="matMenu">
+  <button mat-menu-item>A-Z</button>
+  <button mat-menu-item>Z-A</button>
+</mat-menu>
 
-    <div fxFlex="30" 
-         fxFlex.lg="15"
-         fxFlex.sm="30"
-         *ngFor="let game of videogames">
-       
-         <app-tarjetas [game]="game"></app-tarjetas>
+<button mat-button [matMenuTriggerFor]="orderyear">Ordenar por año</button>
+<mat-menu #orderyear="matMenu">
+  <button mat-menu-item>Méas recientes</button>
+  <button mat-menu-item>Més antiguos</button>
+</mat-menu>
 
-    </div>
-</div>
+
+<button mat-button [matMenuTriggerFor]="orderconsole">Filtrar por Consola</button>
+<mat-menu #orderconsole="matMenu">
+  <mat-form-field appearance="fill">
+  <mat-label>Selecciona consola</mat-label>
+  <mat-select  multiple>
+    <mat-option *ngFor="let console of consoles" [value]="console.name">{{console.name}}</mat-option>
+  </mat-select>
+</mat-form-field>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="orderdeveloper">Filtrar por Desarrollador</button>
+<mat-menu #orderdeveloper="matMenu">
+  <mat-form-field appearance="fill">
+    <mat-label>Selecciona Desarrollador</mat-label>
+    <mat-select  multiple>
+      <mat-option *ngFor="let dev of developers" [value]="dev.name">{{dev.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-menu>
+
 

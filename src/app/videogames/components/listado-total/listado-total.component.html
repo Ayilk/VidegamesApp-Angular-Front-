@@ -1,1 +1,14 @@
-<p>listado-total works!</p>
+<div fxLayout="row wrap"
+fxLayout.xs="column"
+fxLayoutAlign="center"
+fxLayoutGap="30px">
+
+<div fxFlex="40" 
+    fxFlex.lg="15"
+    fxFlex.sm="30"
+    *ngFor="let game of videogames">
+  
+    <app-tarjetas [game]="game"></app-tarjetas>
+
+</div>
+</div>

@@ -1,23 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { MatMenuTrigger } from '@angular/material/menu';
+import { Console } from '../../interfaces/consoles.interface';
 import { Game } from '../../interfaces/videogames.interface';
 import { VideogamesService } from '../../services/videogames.service';
+import { Developer } from '../../interfaces/developers.interface';
 
 @Component({
   selector: 'app-listado',
   templateUrl: './listado.component.html',
-  styles: []
+  styles: [`
+    
+  
+  `]
 })
 export class ListadoComponent implements OnInit {
 
-  videogames: Game[] = []
+  consolas = new FormControl('');
 
-  constructor(private videogamesService: VideogamesService) { }
+  consoles: Console[] = [];
+  developers: Developer[] = [];
+
+  constructor( private videogameServices: VideogamesService ){}
 
   ngOnInit(): void {
-    this.videogamesService.getVideogames()
-    .subscribe(games => {
-      this.videogames = games
-    })
+    this.videogameServices.getConsoles()
+      .subscribe(consoles => {
+        //console.log(consoles)
+        this.consoles = consoles
+      })
+
+    this.videogameServices.getDevelopers()
+      .subscribe(developers => {
+        this.developers = developers
+      })
   }
 
 }

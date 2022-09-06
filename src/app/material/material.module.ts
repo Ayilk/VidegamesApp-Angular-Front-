@@ -9,6 +9,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
@@ -31,6 +32,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatIconModule,
     MatInputModule,
     MatListModule,
+    MatMenuModule,
     MatProgressSpinnerModule,
     MatRadioModule,
     MatSnackBarModule,

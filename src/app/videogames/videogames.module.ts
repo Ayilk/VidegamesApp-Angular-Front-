@@ -21,6 +21,7 @@ import { ListadoTotalComponent } from './components/listado-total/listado-total.
 import { OrderYearComponent } from './components/order-year/order-year.component';
 import { OrderConsoleComponent } from './components/order-console/order-console.component';
 import { OrderDeveloperComponent } from './components/order-developer/order-developer.component';
+import { OrderAlfabetoComponent } from './components/order-alfabeto/order-alfabeto.component';
 
 
 
@@ -40,7 +41,8 @@ import { OrderDeveloperComponent } from './components/order-developer/order-deve
     ListadoTotalComponent,
     OrderYearComponent,
     OrderConsoleComponent,
-    OrderDeveloperComponent
+    OrderDeveloperComponent,
+    OrderAlfabetoComponent
   ],
   imports: [
     CommonModule,

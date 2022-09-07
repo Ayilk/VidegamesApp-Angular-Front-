@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { Console } from '../../interfaces/consoles.interface';
 import { Game } from '../../interfaces/videogames.interface';
@@ -15,13 +14,14 @@ import { Developer } from '../../interfaces/developers.interface';
   `]
 })
 export class ListadoComponent implements OnInit {
+  
 
-  consolas = new FormControl('');
+   consoles: Console[] = [];
+   developers: Developer[] = [];
+   videogames: Game[] = [];
 
-  consoles: Console[] = [];
-  developers: Developer[] = [];
-
-  constructor( private videogameServices: VideogamesService ){}
+  constructor( private videogameServices: VideogamesService,
+                ){}
 
   ngOnInit(): void {
     this.videogameServices.getConsoles()
@@ -36,4 +36,57 @@ export class ListadoComponent implements OnInit {
       })
   }
 
+  getAll(){
+    this.videogameServices.getVideogames()
+    .subscribe(games => {
+      this.videogames = games
+    })
+  }
+  getAZ(){
+    this.videogameServices.getVideogames()
+      .subscribe(games => {
+        let az = games.sort((a,b) => {
+          if(a.name>b.name)return 1;
+          if(a.name<b.name)return -1;
+          return 0;
+        })
+        
+          this.videogames = az;
+      })
+  }
+
+  getZA(){
+    this.videogameServices.getVideogames()
+      .subscribe(games => {
+        let za = games.sort((a,b) => {
+          if(a.name<b.name)return 1;
+          if(a.name>b.name)return -1;
+          return 0;
+        })
+        
+          this.videogames = za;
+      })
+  }
+
+  getOlds(){
+    this.videogameServices.getVideogames()
+      .subscribe(games => {
+        this.videogames = games.sort((a,b) => a.year - b.year)
+      })
+  }
+  getNews(){
+    this.videogameServices.getVideogames()
+      .subscribe(games => {
+        this.videogames = games.sort((a,b) => b.year - a.year)
+      })
+  }
+
+
+  getByDev(developer: string){
+    this.videogameServices.getVideogames()
+      .subscribe(games => {
+        this.videogames = games.filter(el => el.developers.includes(developer))
+      })
+  }
+ 
 }

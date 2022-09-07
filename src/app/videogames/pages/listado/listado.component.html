@@ -2,18 +2,18 @@
 <mat-divider></mat-divider>
 <br>
 
-<button mat-button >Todos los videojuegos</button>
+<button mat-button (click)="getAll()">Todos los videojuegos</button>
 
 <button mat-button [matMenuTriggerFor]="order">Ordenar por Orden Alfabético</button>
 <mat-menu #order="matMenu">
-  <button mat-menu-item>A-Z</button>
-  <button mat-menu-item>Z-A</button>
+  <button mat-menu-item (click)="getAZ()">A-Z</button>
+  <button mat-menu-item (click)="getZA()">Z-A</button>
 </mat-menu>
 
 <button mat-button [matMenuTriggerFor]="orderyear">Ordenar por año</button>
 <mat-menu #orderyear="matMenu">
-  <button mat-menu-item>Méas recientes</button>
-  <button mat-menu-item>Més antiguos</button>
+  <button mat-menu-item (click)="getNews()">Méas recientes</button>
+  <button mat-menu-item (click)="getOlds()">Més antiguos</button>
 </mat-menu>
 
 
@@ -32,9 +32,25 @@
   <mat-form-field appearance="fill">
     <mat-label>Selecciona Desarrollador</mat-label>
     <mat-select  multiple>
-      <mat-option *ngFor="let dev of developers" [value]="dev.name">{{dev.name}}</mat-option>
+      <mat-option *ngFor="let dev of developers" [value]="dev.name" (click)="getByDev(dev.name)">{{dev.name}}</mat-option>
     </mat-select>
   </mat-form-field>
 </mat-menu>
+
+<div fxLayout="row wrap"
+fxLayout.xs="column"
+fxLayoutAlign="center"
+fxLayoutGap="30px">
+
+<div fxFlex="40" 
+    fxFlex.lg="15"
+    fxFlex.sm="30"
+    *ngFor="let game of videogames">
+  
+    <app-tarjetas [game]="game"></app-tarjetas>
+
+</div>
+</div>
+
 
 

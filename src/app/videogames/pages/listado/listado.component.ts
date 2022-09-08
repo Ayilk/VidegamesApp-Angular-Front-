@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { Console } from '../../interfaces/consoles.interface';
 import { Game } from '../../interfaces/videogames.interface';
@@ -15,7 +15,7 @@ import { Developer } from '../../interfaces/developers.interface';
 })
 export class ListadoComponent implements OnInit {
   
-
+   
    consoles: Console[] = [];
    developers: Developer[] = [];
    videogames: Game[] = [];
@@ -80,7 +80,14 @@ export class ListadoComponent implements OnInit {
         this.videogames = games.sort((a,b) => b.year - a.year)
       })
   }
-
+  getByConsole(console: string){
+    this.videogameServices.getVideogames()
+      .subscribe(games => {
+        this.videogames = games.filter(el => el.consoles.includes(console))
+      })
+  }
+ 
+  
 
   getByDev(developer: string){
     this.videogameServices.getVideogames()

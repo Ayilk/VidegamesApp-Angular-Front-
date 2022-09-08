@@ -18,11 +18,11 @@
 
 
 <button mat-button [matMenuTriggerFor]="orderconsole">Filtrar por Consola</button>
-<mat-menu #orderconsole="matMenu">
+<mat-menu #orderconsole="matMenu"> 
   <mat-form-field appearance="fill">
   <mat-label>Selecciona consola</mat-label>
-  <mat-select  multiple>
-    <mat-option *ngFor="let console of consoles" [value]="console.name">{{console.name}}</mat-option>
+  <mat-select >    
+    <mat-option *ngFor="let console of consoles" [value]="console.name" (click)="getByConsole(console.name)">{{console.name}}</mat-option>
   </mat-select>
 </mat-form-field>
 </mat-menu>
@@ -31,26 +31,37 @@
 <mat-menu #orderdeveloper="matMenu">
   <mat-form-field appearance="fill">
     <mat-label>Selecciona Desarrollador</mat-label>
-    <mat-select  multiple>
+    <mat-select>      
       <mat-option *ngFor="let dev of developers" [value]="dev.name" (click)="getByDev(dev.name)">{{dev.name}}</mat-option>
     </mat-select>
   </mat-form-field>
 </mat-menu>
 
-<div fxLayout="row wrap"
-fxLayout.xs="column"
-fxLayoutAlign="center"
-fxLayoutGap="30px">
+<mat-grid-list cols="1" *ngIf="videogames.length<1; else divGame">
+  <mat-grid-tile>
+       <h3>No hay selección o no hay coincidencias con la selección</h3>
+  </mat-grid-tile>
+</mat-grid-list>
 
-<div fxFlex="40" 
-    fxFlex.lg="15"
-    fxFlex.sm="30"
-    *ngFor="let game of videogames">
-  
-    <app-tarjetas [game]="game"></app-tarjetas>
+<ng-template #divGame>
 
-</div>
-</div>
+    <div fxLayout="row wrap"
+         fxLayout.xs="column"
+         fxLayoutAlign="space-evenly"
+         fxLayoutGap="30px"
+         >
+
+      <div fxFlex="40" 
+           fxFlex.lg="25"
+           fxFlex.sm="30"
+           *ngFor="let game of videogames">
+      
+          <app-tarjetas [game]="game"></app-tarjetas>
+
+      </div>
+    </div>
+
+  </ng-template>
 
 
 

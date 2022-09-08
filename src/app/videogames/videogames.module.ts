@@ -17,11 +17,7 @@ import { ListadoComponent } from './pages/listado/listado.component';
 import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
 import { EditarComponent } from './pages/editar/editar.component';
 import { ConfirmarComponent } from './components/confirmar/confirmar.component';
-import { ListadoTotalComponent } from './components/listado-total/listado-total.component';
-import { OrderYearComponent } from './components/order-year/order-year.component';
-import { OrderConsoleComponent } from './components/order-console/order-console.component';
-import { OrderDeveloperComponent } from './components/order-developer/order-developer.component';
-import { OrderAlfabetoComponent } from './components/order-alfabeto/order-alfabeto.component';
+import { ListasComponent } from './pages/listas/listas.component';
 
 
 
@@ -38,11 +34,8 @@ import { OrderAlfabetoComponent } from './components/order-alfabeto/order-alfabe
     TarjetasComponent,
     EditarComponent,
     ConfirmarComponent,
-    ListadoTotalComponent,
-    OrderYearComponent,
-    OrderConsoleComponent,
-    OrderDeveloperComponent,
-    OrderAlfabetoComponent
+    ListasComponent,
+   
   ],
   imports: [
     CommonModule,

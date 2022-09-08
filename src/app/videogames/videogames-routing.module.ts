@@ -9,6 +9,7 @@ import { GameComponent } from './pages/game/game.component';
 
 import { ListadoComponent } from './pages/listado/listado.component';
 import { EditarComponent } from './pages/editar/editar.component';
+import { ListasComponent } from './pages/listas/listas.component';
 
 const routes: Routes = [
   {
@@ -36,10 +37,13 @@ const routes: Routes = [
         component: DeveloperComponent
       },
       {
+        path: 'listas',
+        component: ListasComponent
+      },
+      {
         path: ':id',
         component: GameComponent
       },
-      
       {
         path: '**',
         redirectTo: ''

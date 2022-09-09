@@ -71,13 +71,13 @@ export class ListadoComponent implements OnInit {
   getOlds(){
     this.videogameServices.getVideogames()
       .subscribe(games => {
-        this.videogames = games.sort((a,b) => a.year - b.year)
+        this.videogames = games.sort((a,b) => a.year! - b.year!)
       })
   }
   getNews(){
     this.videogameServices.getVideogames()
       .subscribe(games => {
-        this.videogames = games.sort((a,b) => b.year - a.year)
+        this.videogames = games.sort((a,b) => b.year! - a.year!)
       })
   }
   getByConsole(console: string){

@@ -30,7 +30,7 @@ export class AgregarComponent implements OnInit {
     //_id: '',   
     name: '',
     description:'',
-    year: 0,
+    //year: 0,
     consoles: [],
     developers: [],
     image: '',

@@ -1,15 +1,36 @@
 <mat-list>
-    <h2 matSubheader>Consolas con mayor número de videojuegos</h2>
-    <mat-list-item *ngFor="let top of topConsoles">
-       <mat-icon matListIcon>folder</mat-icon>
-       <h4 matLine>Nombre: {{top._id}}</h4>
-       <p matLine class="demo-2"> Cantidad de Videojuegos: {{top.count}} </p>
-    </mat-list-item>
-    <mat-divider [vertical]="true"></mat-divider>
-    <h3 matSubheader>Desarrolladores con mayor número de videojuegos para más consolas</h3>
-    <mat-list-item *ngFor="let top of topDevelopers">
-       <mat-icon matListIcon>note</mat-icon>
-       <h4 matLine>Nombre: {{top._id}}</h4>
-       <p matLine class="demo-2"> Cantidad de consolas: {{top.count}} </p>
-    </mat-list-item>
- </mat-list>
+
+ <div fxLayout="row wrap"
+         fxLayout.xs="column"
+         fxLayoutAlign="space-evenly"
+         fxLayoutGap="30px"
+         >
+         <div fxFlex="40" 
+         fxFlex.lg="20"
+         fxFlex.sm="30"
+         >
+         <h2 matSubheader>Consolas con mayor número de videojuegos</h2>
+         <mat-list-item *ngFor="let top of topConsoles">
+            <mat-icon matListIcon>folder</mat-icon>
+            <h4 matLine>Nombre: {{top._id}}</h4>
+            <p matLine class="demo-2"> Cantidad de Videojuegos: {{top.count}} </p>
+         </mat-list-item>
+         
+      </div>
+      <mat-divider [vertical]="true"></mat-divider>
+      <div>
+         <h3 matSubheader>Desarrolladores con mayor número de videojuegos para más consolas</h3>
+         <mat-list-item *ngFor="let top of topDevelopers">
+            <mat-icon matListIcon>note</mat-icon>
+            <h4 matLine>Nombre: {{top._id}}</h4>
+            <p matLine class="demo-2"> Cantidad de consolas: {{top.count}} </p>
+         </mat-list-item>     
+      </div>
+     
+         
+            
+            
+     
+ </div>
+
+</mat-list>

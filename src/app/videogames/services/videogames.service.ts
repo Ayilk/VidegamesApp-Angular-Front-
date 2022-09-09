@@ -6,7 +6,7 @@ import { environment } from '../../../environments/environment.prod';
 import { Console } from '../interfaces/consoles.interface';
 import { Developer } from '../interfaces/developers.interface';
 import { TopDeveloper } from '../interfaces/topdevelopers.interface';
-import { TopConsole } from '../interfaces/TopConsoles.interface';
+import { TopConsole } from '../interfaces/topconsoles.interface';
 
 @Injectable({
   providedIn: 'root'

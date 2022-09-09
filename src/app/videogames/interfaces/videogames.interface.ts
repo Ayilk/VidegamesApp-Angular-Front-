@@ -3,7 +3,7 @@ export interface Game {
     name:        string;
     description: string;
     developers:  string[];
-    year:        number;
+    year?:        number;
     consoles:    string[];
     image:       string;
     active:      boolean;

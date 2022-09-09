@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TopConsole } from '../../interfaces/TopConsoles.interface';
+import { TopConsole } from '../../interfaces/topconsoles.interface';
 import { VideogamesService } from '../../services/videogames.service';
 import { TopDeveloper } from '../../interfaces/topdevelopers.interface';
 
@@ -10,9 +10,12 @@ import { TopDeveloper } from '../../interfaces/topdevelopers.interface';
   ]
 })
 export class ListasComponent implements OnInit {
+  
 
   topConsoles: TopConsole[] = [];
   topDevelopers: TopDeveloper[] = [];
+
+  
 
   constructor(private videogameServices: VideogamesService) { }
 
@@ -26,8 +29,5 @@ export class ListasComponent implements OnInit {
       .subscribe(tops => {
         this.topDevelopers = tops
       })
-  }
-
-
-  
+  }  
 }

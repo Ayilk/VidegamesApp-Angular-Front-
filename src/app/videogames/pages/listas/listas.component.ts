@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TopConsole } from '../../interfaces/TopConsoles.interface';
+import { VideogamesService } from '../../services/videogames.service';
+import { TopDeveloper } from '../../interfaces/topdevelopers.interface';
 
 @Component({
   selector: 'app-listas',
@@ -8,9 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListasComponent implements OnInit {
 
-  constructor() { }
+  topConsoles: TopConsole[] = [];
+  topDevelopers: TopDeveloper[] = [];
+
+  constructor(private videogameServices: VideogamesService) { }
 
   ngOnInit(): void {
+    this.videogameServices.getTopConsoles()
+      .subscribe(tops => {
+        this.topConsoles = tops
+      })
+
+      this.videogameServices.getTopDevelopers()
+      .subscribe(tops => {
+        this.topDevelopers = tops
+      })
   }
 
+
+  
 }

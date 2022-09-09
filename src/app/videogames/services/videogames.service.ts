@@ -5,6 +5,8 @@ import { Game } from '../interfaces/videogames.interface';
 import { environment } from '../../../environments/environment.prod';
 import { Console } from '../interfaces/consoles.interface';
 import { Developer } from '../interfaces/developers.interface';
+import { TopDeveloper } from '../interfaces/topdevelopers.interface';
+import { TopConsole } from '../interfaces/TopConsoles.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -46,5 +48,13 @@ export class VideogamesService {
 
   deleteVideogame (game:Game): Observable<any>{
     return this.http.delete<any>(`${this.baseUrl}/videogames/${game._id}`)
+  }
+
+  getTopConsoles (): Observable<TopConsole[]>{
+    return this.http.get<TopConsole[]>(`${this.baseUrl}/videogames/topConsoles`)
+  }
+
+  getTopDevelopers (): Observable<TopDeveloper[]>{
+    return this.http.get<TopDeveloper[]>(`${this.baseUrl}/videogames/topDevelopers`)
   }
 }

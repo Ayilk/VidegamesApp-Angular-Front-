@@ -3,7 +3,6 @@ import { Console } from '../../interfaces/consoles.interface';
 import { Game } from '../../interfaces/videogames.interface';
 import { VideogamesService } from '../../services/videogames.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmarComponent } from '../../components/confirmar/confirmar.component';
@@ -90,24 +89,24 @@ export class AgregarComponent implements OnInit {
   }
 
  
-  borrar(){
+  // borrar(){
 
-    const dialgo = this.dialog.open(ConfirmarComponent, {
-      width: '250px',
-      data: this.game
-    });
+  //   const dialgo = this.dialog.open(ConfirmarComponent, {
+  //     width: '250px',
+  //     data: this.game
+  //   });
 
-    dialgo.afterClosed().subscribe(result => {
-      if(result){
+  //   dialgo.afterClosed().subscribe(result => {
+  //     if(result){
 
-        this.videogameService.deleteVideogame(this.game)
-        .subscribe(resp => {
-           this.router.navigate(['/videogames']);
-        })
-      }
-    }
-      )
-  }
+  //       this.videogameService.deleteVideogame(this.game)
+  //       .subscribe(resp => {
+  //          this.router.navigate(['/videogames']);
+  //       })
+  //     }
+  //   }
+  //     )
+  // }
 
   mostarSnackbar(mensaje: string){
     this.snackBar.open(mensaje, 'Ok!', {

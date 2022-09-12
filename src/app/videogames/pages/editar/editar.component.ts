@@ -96,16 +96,17 @@ export class EditarComponent implements OnInit {
  
   borrar(){
 
-    const dialgo = this.dialog.open(ConfirmarComponent, {
+    const dialog = this.dialog.open(ConfirmarComponent, {
       width: '250px',
       data: this.game
     });
 
-    dialgo.afterClosed().subscribe(result => {
+    dialog.afterClosed().subscribe(result => {
       if(result){
-
+        //console.log(result)
         this.videogameService.deleteVideogame(this.game)
         .subscribe(resp => {
+          //console.log(resp)
            this.router.navigate(['/videogames']);
         })
       }

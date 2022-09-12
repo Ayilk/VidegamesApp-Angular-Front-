@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './auth/guards/auth.guard';
+// import { AuthGuard } from './auth/guards/auth.guard';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 
 const routes: Routes = [
@@ -14,7 +14,7 @@ const routes: Routes = [
     loadChildren: () => import ('./videogames/videogames.module').then(m => m.VideogamesModule),
     //Si estoy llamando al canLoad , angular va ir a mi guard y revisar que tenga
     //implementada la interfaz del canLoad y va a implementarlo cuando alguien intente CARGAR ese modulo
-    canLoad: [AuthGuard]
+    //canLoad: [AuthGuard]
   },
   {
     path: '404',
@@ -22,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '404'
+    redirectTo: 'videogames'
   }
 ];
 

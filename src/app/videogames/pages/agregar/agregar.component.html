@@ -23,16 +23,18 @@
         <mat-form-field >
             <mat-label>Descripción</mat-label>
             <textarea matInput
-                   type="text"                   
+                   type="text"  
+                   maxlength="300"                 
                    [(ngModel)]="game.description"
-                   required></textarea>
-                   <mat-error *ngIf="game.description.length>300">La Descripción debe contener menos de 300 caracteres</mat-error>
+                   required></textarea>                   
         </mat-form-field>
 
         <mat-form-field >
             <mat-label>Año</mat-label>
             <input matInput
                    type="number"
+                   min="1952"
+                   max="2026"
                    [(ngModel)]="game.year"
                    required>
         </mat-form-field>

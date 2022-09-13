@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  //baseUrl: 'https://videogames-app-mm.herokuapp.com'
-  baseUrl: 'http://localhost:4000/api'
+  baseUrl: 'https://vdgms.herokuapp.com'
+  //baseUrl: 'http://localhost:4000/api'
 };
 
 /*

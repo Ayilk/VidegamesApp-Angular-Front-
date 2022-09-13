@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://vdgms.herokuapp.com'
+  baseUrl: 'https://vdgms.herokuapp.com/api'
   //baseUrl: 'http://localhost:4000/api'
 };
 
